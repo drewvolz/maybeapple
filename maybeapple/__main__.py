@@ -19,11 +19,10 @@ def check_fuzzy(framework_name=''):
 
 
 def check_verbatim(framework_name=''):
-	public_path = f'{public_framework_path}/{framework_name}.framework'
-	private_path = f'{private_framework_path}/{framework_name}.framework'
+	public_path = f'{public_framework_path}/{framework_name}'
+	private_path = f'{private_framework_path}/{framework_name}'
 
-	public_path_result = path.isdir(public_framework_path)
-	private_path_result = path.isdir(private_framework_path)
+	return path.isdir(public_path) or path.isdir(private_path)
 
 
 def parse_framework_name(alert=''):
