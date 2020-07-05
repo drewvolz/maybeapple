@@ -31,6 +31,9 @@ def parse_framework_name(alert=''):
 	if len(alert) > 1:
 		questionable_framework = alert.split()[0]
 
+	if not questionable_framework.endswith(".framework"):
+		questionable_framework += ".framework"
+
 	return questionable_framework
 
 
