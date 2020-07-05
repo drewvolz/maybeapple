@@ -7,23 +7,15 @@ private_framework_path = f'/System/Library/PrivateFrameworks'
 
 
 def check_fuzzy(framework_name=''):
-	public_framework_list = [
-	    f for f in listdir(public_framework_path)
-	    if isdir(join(public_framework_path, f))
+	framework_list = listdir(public_framework_path) or listdir(
+	    private_framework_path)
+
+	frameworks = [
+	    f for f in framework_list if isdir(join(public_framework_path, f))
+	    or isdir(join(private_framework_path, f))
 	]
 
-	private_framework_list = [
-	    f for f in listdir(private_framework_path)
-	    if isdir(join(private_framework_path, f))
-	]
-
-	fuzzy_exists_in_public = any(framework_name in sub
-	                             for sub in public_framework_list)
-
-	fuzzy_exists_in_private = any(framework_name in sub
-	                              for sub in private_framework_list)
-
-	return fuzzy_exists_in_public or fuzzy_exists_in_private
+	return any(framework_name in sub for sub in frameworks)
 
 
 def check_verbatim(framework_name=''):
