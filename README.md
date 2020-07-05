@@ -23,5 +23,5 @@ Checking frameworks in /System/Library/Frameworks…
 Checking frameworks in /System/Library/PrivateFrameworks…
 Done.
 
-`DeviceManagement` is possibly a framework created by Apple.
+`DeviceManagement.framework` is possibly a framework created by Apple.
 ```
